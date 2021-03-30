@@ -42,19 +42,21 @@
                                     <th scope="col" class="headTable"></th>
                                 </tr>
                             </thead>
+                            @foreach($products as $product)
                             <tbody id="table-content">
                                 <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td>Michael</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td>{{$product->id}}</td>
+                                    <td>{{$product->product_name}}</td>
+                                    <td>{{$product->product_description}}</td>
+                                    <td>{{$product->product_category}}</td>
+                                    <td>{{$product->product_stock}}</td>
+                                    <td>{{$product->product_finalprice}}</td>
                                     <td>
                                         <button class="button" data-toggle="modal" data-target="#updateModal">Update</button>
                                     </td>
                                 </tr>
-                            </tbody>  
+                            </tbody>
+                            @endforeach 
                         </table>
                         @include('admin.addProduct')
                         @include('admin.updateProduct')

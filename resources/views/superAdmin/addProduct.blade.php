@@ -14,7 +14,7 @@
         <div class="row">
         <p class="detail-title">Foto Produk</p>
         <br>
-  <form action='/superadmin/addproduct' method="POST">
+  <form action='/superadmin/addproduct' method="POST" enctype="multipart/form-data">
   <div class="form-group">
   {{csrf_field()}}
     <label class="label-add" for="exampleFormControlInput1">Upload Gambar</label>

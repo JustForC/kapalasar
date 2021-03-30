@@ -50,7 +50,7 @@
                                     <td>{{$product->product_description}}</td>
                                     <td>{{$product->product_category}}</td>
                                     <td>{{$product->product_stock}}</td>
-                                    <td>{{$product->price - $product->cutprice}}</td>
+                                    <td>{{$product->product_finalprice}}</td>
                                     <td>
                                         <button class="button" data-toggle="modal" data-target="#updateModal">Update</button>
                                     </td>

@@ -22,6 +22,7 @@ class CreateProductsTable extends Migration
             $table->integer('product_stock');
             $table->integer('product_price');
             $table->integer('product_cutprice')->default(0);
+            $table->integer('product_finalprice');
             $table->timestamps();
         });
     }

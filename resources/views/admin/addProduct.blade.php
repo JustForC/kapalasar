@@ -19,20 +19,23 @@
         </div>
         <button class="mt-1" style="background: #C4C4C4;border-radius: 5px;width: 149px;height: 35px;">Upload</button>
         <br>
-        <form>
+  <form action='/admin/addproduct' method="POST" enctype="multipart/form-data">
   <div class="form-group">
+  {{csrf_field()}}
+    <label class="label-add" for="exampleFormControlInput1">Upload Gambar</label>
+    <input type="file" name="product_image" class="form-control" id="exampleFormControlInput1">
     <label class="label-add" for="exampleFormControlInput1">Nama Produk</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1">
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="product_name">
     <label class="label-add" for="exampleFormControlInput1">Deskripsi Produk</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1">
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="product_description">
     <label class="label-add" for="exampleFormControlInput1">Kategori Produk</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1">
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="product_category">
     <label class="label-add" for="exampleFormControlInput1">Stok</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1">
+    <input type="number" class="form-control" id="exampleFormControlInput1" name="product_stock">
     <label class="label-add" for="exampleFormControlInput1">Harga</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1">
+    <input type="number" class="form-control" id="exampleFormControlInput1" name="product_price">
     <label class="label-add" for="exampleFormControlInput1">Potongan Harga</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1">
+    <input type="number" class="form-control" id="exampleFormControlInput1" name="product_cutprice">
     <label class="label-add" for="exampleFormControlInput1">Flash Sale</label>
   </div>
   <div class="form-check">
@@ -41,11 +44,11 @@
     Ya
   </label>
 </div>
-</form>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
       </div>
     </div>
+</form>
   </div>
 </div>

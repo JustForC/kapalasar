@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Voucher;
 use Illuminate\Http\RedirectResponse;
+use App\Models\Product;
 use Validator;
 
 class AdminController extends Controller
@@ -17,7 +18,39 @@ class AdminController extends Controller
 
     // Bagian product
     public function product(){
-        return view('admin/product');
+        $products = Product::get();
+        return view('admin/product',['products' => $products]);
+    }
+
+    public function addProduct(Request $request){
+        var_dump($request->all());
+        $image = time().'-'.'.'.$request->product_image->extension();
+        $test =  $request->product_image->move(public_path('productimages'),$image);
+
+        if($request->product_cutprice != NULL){
+            Product::create([
+                'product_image' => $image,
+                'product_name' => $request->product_name,
+                'product_description' => $request->product_description,
+                'product_stock' => $request->product_stock,
+                'product_price' => $request->product_price,
+                'product_cutprice' => $request->product_cutprice,
+                'product_category' => $request->product_category,
+                'product_finalprice' => $request->product_price - $request->product_cutprice,
+            ]);
+            return redirect('superadmin/product');
+        }
+        Product::create([
+            'product_image' => $image,
+            'product_name' => $request->product_name,
+            'product_description' => $request->product_description,
+            'product_stock' => $request->product_stock,
+            'product_price' => $request->product_price,
+            'product_category' => $request->product_category,
+            'product_finalprice' => $request->price,
+        ]);
+        return redirect('superadmin/product');
+        
     }
     // End bagian product
 
